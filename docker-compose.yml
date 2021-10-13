@@ -1,0 +1,15 @@
+version: '3'
+services:
+    direct:
+        image: nginx:latest
+        ports:
+            - "8010:80"
+        volumes:
+            - ./direct.conf:/etc/nginx/conf.d/nginx.conf
+            - ./app:/app
+    proxy:
+        image: nginx:latest
+        ports:
+            - "8011:80"
+        volumes:
+            - ./proxy.conf:/etc/nginx/conf.d/nginx.conf
